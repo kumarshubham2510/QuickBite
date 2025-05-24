@@ -3,7 +3,6 @@ import CartContext from "../store/CartContext";
 import { currencyFormatter } from "../util/formatting";
 import Input from "./UI/Input";
 import Modal from "./Modal";
-
 import Button from "./UI/Button";
 import UserProgressContext from "../store/UserProgressContext";
 
@@ -21,16 +20,38 @@ export default function Checkout() {
     userProgressCtx.hideCheckout();
   }
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const fd = new FormData(event.target);
+    const customerData = Object.fromEntries(fd.entries());
+
+    const response = await fetch("http://localhost:3000/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order: {
+          items: cartCtx.items,
+          customer: customerData,
+        },
+      }),
+    });
+
+    if (response.ok) {
+      console.log("Order Submitted");
+    }
+  }
+
   return (
     <Modal
-      className="cart"
       open={userProgressCtx.progress === "checkout"}
       onClose={handleCloseCheckout}
     >
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Checkout </h2>
         <p>Total Amount : {currencyFormatter.format(cartTotal)}</p>
-        <Input label="Full Name" id="full=name" />
+        <Input label="Full Name" id="name" />
         <Input label="Email Address" id="email" type="email" />
         <Input label="Street Address" id="street" type="text" />
         <div className="control-row">
