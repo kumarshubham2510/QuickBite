@@ -4,12 +4,6 @@ A full-stack food ordering web application built using **React** (Vite) for the 
 
 ---
 
-## 📸 Demo
-
-> 🔗 Add your deployed link here (e.g., Vercel/Netlify)
-
----
-
 ## 🛠️ Technologies Used
 
 ### Frontend
