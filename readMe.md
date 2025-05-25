@@ -1,8 +1,10 @@
-# 🍽️ React Food Order App
+# 🍽️ QuickBite
 
 A full-stack food ordering web application built using **React** (Vite) for the frontend and **Node.js** (Express) for the backend. Users can browse meals, add them to a cart, and place an order through a checkout form. Order data is saved in the backend file system.
 
 ---
+![Uploading image.png…]()
+
 
 ## 🛠️ Technologies Used
 
