@@ -3,7 +3,7 @@
 A full-stack food ordering web application built using **React** (Vite) for the frontend and **Node.js** (Express) for the backend. Users can browse meals, add them to a cart, and place an order through a checkout form. Order data is saved in the backend file system.
 
 ---
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/4aa5ac12-e4d5-4a72-9346-6d28fd4e385f)
 
 
 ## 🛠️ Technologies Used
