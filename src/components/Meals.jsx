@@ -1,25 +1,20 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.jpg";
 import MealIteam from "./MealIteam";
+import useHttps from "../hooks/useHttps";
+
+const requestConfig = {};
+
 export default function Meals() {
-  const [meals, setMeals] = useState([]);
+  const {
+    data: meals,
+    isLoading,
+    error,
+  } = useHttps("http://localhost:3000/meals", requestConfig, []);
 
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    async function fetchMeals() {
-      setLoading(true);
-      const response = await fetch("http://localhost:3000/meals");
-
-      if (!response.ok) {
-        return;
-      }
-      const data = await response.json();
-      setLoading(false);
-      setMeals(data);
-    }
-    fetchMeals();
-  }, []);
+  if (isLoading) {
+    return <p>Loading meals...</p>;
+  }
 
   return (
     <ul id="meals">
