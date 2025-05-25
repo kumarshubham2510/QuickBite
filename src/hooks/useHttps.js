@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 
-
-
 async function sendHttpRequest(url, config) {
   const response = await fetch(url);
   const resData = await response.json();
@@ -40,7 +38,7 @@ export default function useHttps(url, config, initialData) {
   return {
     data,
     isLoading,
-    data,
+    error,
     sendRequest,
   };
 }
